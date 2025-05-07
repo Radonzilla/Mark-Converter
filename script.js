@@ -31,18 +31,23 @@ const historyList = document.getElementById('historyList');
 // Initialize history from localStorage
 let conversionHistory = JSON.parse(localStorage.getItem('markConverterHistory')) || [];
 
-// Theme toggle
+// Theme toggle with animation
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    
     // Save theme preference
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    
+    // Add animation effect when toggling
+    themeToggle.classList.add('toggling');
+    setTimeout(() => {
+        themeToggle.classList.remove('toggling');
+    }, 500);
 });
 
 // Load saved theme
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
-    themeToggle.textContent = '☀️';
 }
 
 // Tab switching
