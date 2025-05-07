@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mark Converter</h1>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab active" data-tab="standard">Standard Calculator</button>
+            <button class="tab" data-tab="reverse">Reverse Calculator</button>
+        </div>
+        
+        <div class="card tab-content active" id="standardTab">
+            <div class="input-group">
+                <label for="obtainedMarks">Obtained Marks</label>
+                <input type="number" id="obtainedMarks" placeholder="Enter marks obtained" min="0" step="any">
+                <div class="error" id="obtainedMarksError">Please enter a valid positive number</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="totalMarks">Total Marks</label>
+                <input type="number" id="totalMarks" placeholder="Enter total marks" min="0" step="any">
+                <div class="error" id="totalMarksError">Please enter a positive number greater than zero</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="targetScale">Convert to Scale</label>
+                <input type="number" id="targetScale" placeholder="Enter target scale" min="0" step="any">
+                <div class="error" id="targetScaleError">Please enter a positive number</div>
+            </div>
+            
+            <div class="result" id="standardResult">
+                Converted Mark: <span id="convertedMark">--</span>
+                <br>
+                Percentage: <span id="percentage">--</span>%
+            </div>
+        </div>
+        
+        <div class="card tab-content" id="reverseTab">
+            <div class="input-group">
+                <label for="targetMarks">Target Marks</label>
+                <input type="number" id="targetMarks" placeholder="Enter target marks" min="0" step="any">
+                <div class="error" id="targetMarksError">Please enter a valid positive number</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="reverseTotalMarks">Total Marks</label>
+                <input type="number" id="reverseTotalMarks" placeholder="Enter total marks" min="0" step="any">
+                <div class="error" id="reverseTotalMarksError">Please enter a positive number greater than zero</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="originalScale">Original Scale</label>
+                <input type="number" id="originalScale" placeholder="Enter original scale" min="0" step="any">
+                <div class="error" id="originalScaleError">Please enter a positive number greater than zero</div>
+            </div>
+            
+            <div class="result" id="reverseResult">
+                Required Marks: <span id="requiredMarks">--</span>
+                <br>
+                Required Percentage: <span id="requiredPercentage">--</span>%
+            </div>
+        </div>
+        
+        <div class="card history-container">
+            <h2>Conversion History</h2>
+            <div id="historyList">
+                <!-- History items will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
